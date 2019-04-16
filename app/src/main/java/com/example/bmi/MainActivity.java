@@ -25,9 +25,11 @@ public class MainActivity extends AppCompatActivity {
         tex2 = findViewById(R.id.editText2);
         tex3 = findViewById(R.id.editText3);
         bmi = findViewById(R.id.textView);
+        int j = 0;
 
         a = Double.parseDouble(tex1.getText().toString())/Math.pow(Double.parseDouble(tex2.getText().toString()),2);
         b = Double.toString(a);
+
 
         bmi.setText(b);
 
