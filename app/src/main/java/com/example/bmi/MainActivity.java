@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -25,13 +26,22 @@ public class MainActivity extends AppCompatActivity {
         tex2 = findViewById(R.id.editText2);
         tex3 = findViewById(R.id.editText3);
         bmi = findViewById(R.id.textView);
-        int j = 0;
+
 
         a = Double.parseDouble(tex1.getText().toString())/Math.pow(Double.parseDouble(tex2.getText().toString()),2);
         b = Double.toString(a);
+        String c="d";
+        if(a<18.5){c="Your BMI is:"+a+"You are too thin";
+        getWindow().setBackgroundDrawableResource(R.drawable.thin);}
+        if(a>=18.5&&a<25){c="Your BMI is:"+a+"You are perfect";
+            getWindow().setBackgroundDrawableResource(R.drawable.perfect);}
+        if(a>25){c="Your BMI is:"+a+"You are too fat";
+            getWindow().setBackgroundDrawableResource(R.drawable.fat);}
 
 
-        bmi.setText(b);
+
+
+        }
 
 
 
@@ -39,4 +49,4 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-}
+
