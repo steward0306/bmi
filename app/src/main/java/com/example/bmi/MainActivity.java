@@ -7,6 +7,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.text.DecimalFormat;
+
 public class MainActivity extends AppCompatActivity {
 
     private EditText tex1,tex2,tex3;
@@ -21,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
     public void BMI(View view){
 
         double a;
-        String b;
+
         tex1 = findViewById(R.id.editText1);
         tex2 = findViewById(R.id.editText2);
         tex3 = findViewById(R.id.editText3);
@@ -29,15 +31,20 @@ public class MainActivity extends AppCompatActivity {
 
 
         a = Double.parseDouble(tex1.getText().toString())/Math.pow(Double.parseDouble(tex2.getText().toString()),2);
-        b = Double.toString(a);
+
+        DecimalFormat df = new DecimalFormat("##.00");
+        Double  b =1.2;
+        b=Double.parseDouble(df.format(a));
+
         String c="d";
-        if(a<18.5){c="Your BMI is:"+a+"You are too thin";
+        if(a<18.5){c="Your BMI is:"+b+"You are too thin";
         getWindow().setBackgroundDrawableResource(R.drawable.thin);}
-        if(a>=18.5&&a<25){c="Your BMI is:"+a+"You are perfect";
+        if(a>=18.5&&a<25){c="Your BMI is:"+b+"You are perfect";
             getWindow().setBackgroundDrawableResource(R.drawable.perfect);}
-        if(a>25){c="Your BMI is:"+a+"You are too fat";
+        if(a>25){c="Your BMI is:"+b+"You are too fat";
             getWindow().setBackgroundDrawableResource(R.drawable.fat);}
 
+            Toast.makeText(this,c,Toast.LENGTH_LONG).show();
 
 
 
